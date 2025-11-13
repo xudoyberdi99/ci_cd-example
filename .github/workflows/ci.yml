@@ -9,28 +9,20 @@ on:
 
 # Asosiy ish (job)
 jobs:
-  build-and-test:
-    runs-on: ubuntu-latest # Linux serverda ishga tushadi
+  test:
+    runs-on: ubuntu-latest
 
     steps:
-      # 1. Kodni yuklab olish
-      - name: Kodni yuklab olish
+      - name: Kodni yuklash
         uses: actions/checkout@v4
 
-      # 2. Node.js versiyasini o‘rnatish
-      - name: Node.js versiyasini o‘rnatish
+      - name: Node.js o‘rnatish
         uses: actions/setup-node@v4
         with:
           node-version: 18
 
-      # 3. Kutubxonalarni o‘rnatish
       - name: Kutubxonalarni o‘rnatish
-        run: npm install
+        run: npm install --include=dev
 
-      # # 4. Build bosqichi
-      # - name: Build bosqichi
-      #   run: npm run build
-
-      # 5. Test bosqichi
       - name: Testlarni ishga tushirish
-        run: npx jest --coverage
+        run: npm test
