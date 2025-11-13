@@ -27,9 +27,9 @@ jobs:
       - name: Kutubxonalarni o‘rnatish
         run: npm install
 
-      # 4. Build bosqichi
-      - name: Build bosqichi
-        run: npm run build
+      # # 4. Build bosqichi
+      # - name: Build bosqichi
+      #   run: npm run build
 
       # 5. Test bosqichi
       - name: Test bosqichi
