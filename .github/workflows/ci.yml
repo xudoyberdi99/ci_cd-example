@@ -1,0 +1,36 @@
+name: Node.js CI
+
+# Pipeline qachon ishga tushadi
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+# Asosiy ish (job)
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # Linux serverda ishga tushadi
+
+    steps:
+      # 1. Kodni yuklab olish
+      - name: Kodni yuklab olish
+        uses: actions/checkout@v4
+
+      # 2. Node.js versiyasini o‘rnatish
+      - name: Node.js versiyasini o‘rnatish
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # 3. Kutubxonalarni o‘rnatish
+      - name: Kutubxonalarni o‘rnatish
+        run: npm install
+
+      # 4. Build bosqichi
+      - name: Build bosqichi
+        run: npm run build
+
+      # 5. Test bosqichi
+      - name: Test bosqichi
+        run: npm test
