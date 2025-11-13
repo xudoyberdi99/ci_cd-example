@@ -32,5 +32,5 @@ jobs:
       #   run: npm run build
 
       # 5. Test bosqichi
-      - name: Test bosqichi
-        run: npm test
+      - name: Testlarni ishga tushirish
+        run: npx jest --coverage
